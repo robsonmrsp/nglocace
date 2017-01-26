@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url("vendor/bootstrap/css/bootstrap.css");
+@import url("vendor/font.awesome/font-awesome-4.6.3/css/font-awesome.css");
+@import url("vendor/theme/ace.css");
+
+@import url("vendor/theme/ace-fonts.css");
+
+@import url("custom.css");
+/* included only when we don't want to use fonts from google server */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(fonts/DXI1ORHCpsQm3Vp6mXoaTXhCUOGz7vYGh680lGh-uXM.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(fonts/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+}
