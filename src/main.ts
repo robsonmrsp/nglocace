@@ -9,5 +9,5 @@ import { AppModule } from './app/app.module';
 if (environment.production) {
   enableProdMode();
 }
-
+console.log('inicio');
 platformBrowserDynamic().bootstrapModule(AppModule);

@@ -9,7 +9,10 @@ export class GeneroComponent implements OnInit {
 
     constructor() { }
 
+    generos: any[] = [{ nome: 'robson', descricao: 'teste' }];
+
     ngOnInit() {
+
     }
 
 }
