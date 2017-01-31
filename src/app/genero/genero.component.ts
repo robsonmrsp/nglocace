@@ -5,6 +5,7 @@ import { GeneroService } from './genero.service';
     selector: 'app-genero',
     templateUrl: './genero.component.html',
     styleUrls: ['./genero.component.css'],
+
     providers: [GeneroService]
 })
 export class GeneroComponent implements OnInit {
@@ -13,12 +14,22 @@ export class GeneroComponent implements OnInit {
 
     constructor( private generoService: GeneroService ) { }
 
+    /**
+     * carregando todos os generos.
+     */
     getGeneros() {
-        this.generoService.getAll().then(( generos: any[] ) => this.generos = generos );
+        var that = this;
+
+        this.generoService.getAll()
+            .then( function( generos: any[] ) {
+                that.generos = generos;
+            })
+            .catch( function( err: any ) {
+                console.error( err );
+            });
     }
 
     ngOnInit() {
         this.getGeneros();
     }
-
 }
