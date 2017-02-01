@@ -1,3 +1,16 @@
+##  Projeto Spring + angular2, tudo ainda separado
+   https://github.com/zouabimourad/angular2-spring
+
+## Outra proposta com Spring + Angular2 (mostra material de segurança)
+   https://github.com/ehirsch/spring-angular2 
+## datatable
+	http://swimlane.github.io/ngx-datatable/#
+	
+## Datatable possivelmente fácil de extender pois a ideia é o datatable receber um Pager<XPTO> que contem todas 
+## as informações da paginação e a pagina de elementos. alem disso o serviço que irá fazer o get nos elementos no servidor
+   
+   https://github.com/valor-software/ng2-table
+   	
 # Nglocace
 
 
