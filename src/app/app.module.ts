@@ -7,13 +7,15 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { FilmeComponent } from './filme/filme.component';
 import { GeneroComponent } from './genero/genero.component';
+import { PageGeneroComponent } from './genero/page-genero/page-genero.component';
 
 
 @NgModule( {
     declarations: [
         AppComponent,
         FilmeComponent,
-        GeneroComponent
+        GeneroComponent,
+        PageGeneroComponent
     ],
     imports: [
         BrowserModule,

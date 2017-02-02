@@ -9,19 +9,27 @@ export class GeneroService {
     constructor( private http: Http ) { }
 
 
-    private generosUrl = 'http://localhost:3000/api/comments';
+    private generosUrl = 'http://localhost:8083/locace/rs/crud/generos';
+
+    createAuthorizationHeader( headers: Headers ) {
+        headers.append( 'Authorization', 'Basic ' +
+            btoa( 'mr:123456' ) );
+    }
 
     getPageAll(): Observable<any> {
-        return this.http.get( this.generosUrl )
-            .map( function( res: Response ) {
-                console.log( res )
-                //deve Devolver um Pager de Genero
-                return res.json()
-            })
-            .catch( function( err: any ) {
-                console.log( err )
-                return Observable.throw( err.json().error || 'Server error' )
-            });
+        let headers = new Headers();
+        this.createAuthorizationHeader( headers );
+
+        return this.http.get( this.generosUrl, {
+            headers: headers
+        }).map( function( res: Response ) {
+            console.log( res )
+            //deve Devolver um Pager de Genero
+            return res.json()
+        }).catch( function( err: any ) {
+            console.log( err )
+            return Observable.throw( err.json().error || 'Server error' )
+        });
     }
 
 
