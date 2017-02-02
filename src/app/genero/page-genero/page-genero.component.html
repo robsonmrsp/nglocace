@@ -74,16 +74,10 @@
 												<thead>
 													<tr>
 														<th class="renderable nome">
-															<a>
-																Nome &nbsp;
-																<b class=""></b>
-															</a>
+															<a datatableSort [sortName]="'nome'" (sortChanged)="paging($event)">Nome &nbsp; </a>
 														</th>
 														<th class="renderable descricao">
-															<a>
-																Descrição &nbsp;
-																<b class=""></b>
-															</a>
+															<a datatableSort [sortName]="'descricao'" (sortChanged)="paging($event)"> Descrição &nbsp; </a>
 														</th>
 														<th class="renderable acoes">Ações(Editar, Deletar)</th>
 														<th class="editable renderable header-cell-manage-tool">

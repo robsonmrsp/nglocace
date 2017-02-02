@@ -7,11 +7,16 @@ import { GeneroService } from './../genero.service';
     styleUrls: ['./page-genero.component.css'],
     providers: [GeneroService]
 })
+
 export class PageGeneroComponent implements OnInit {
 
     pagerGeneros: any = {};
+    dataTableConfig : any = {
+            
+    } 
 
     constructor( private generoService: GeneroService ) { }
+
 
     /**
      * carregando todos os generos.
@@ -40,7 +45,9 @@ export class PageGeneroComponent implements OnInit {
         console.log( 'removendo... ' + genero.nome )
     }
 
-
+    public paging( object: any ) {
+        console.log( JSON.stringify( object ) );
+    }
     ngOnInit() {
         this.getPageGeneros();
     }

@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { FilmeComponent } from './filme/filme.component';
 import { GeneroComponent } from './genero/genero.component';
 import { PageGeneroComponent } from './genero/page-genero/page-genero.component';
+import { DatatableSortDirective } from './components/datatable-sort.directive';
 
 
 @NgModule( {
@@ -15,7 +16,8 @@ import { PageGeneroComponent } from './genero/page-genero/page-genero.component'
         AppComponent,
         FilmeComponent,
         GeneroComponent,
-        PageGeneroComponent
+        PageGeneroComponent,
+        DatatableSortDirective
     ],
     imports: [
         BrowserModule,
