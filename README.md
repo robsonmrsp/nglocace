@@ -1,3 +1,7 @@
+##Site com algumas boas informações
+http://aprendaangular2.online/es6/promises
+
+
 ##  Projeto Spring + angular2, tudo ainda separado
    https://github.com/zouabimourad/angular2-spring
 

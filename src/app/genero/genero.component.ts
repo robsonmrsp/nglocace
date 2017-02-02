@@ -10,26 +10,29 @@ import { GeneroService } from './genero.service';
 })
 export class GeneroComponent implements OnInit {
 
-    generos: any[] = [];
+    pagerGeneros: any = {};
 
     constructor( private generoService: GeneroService ) { }
 
     /**
      * carregando todos os generos.
      */
-    getGeneros() {
+    getPageGeneros() {
         var that = this;
 
-        this.generoService.getAll()
-            .then( function( generos: any[] ) {
-                that.generos = generos;
+        this.generoService.getPageAll()
+            .subscribe(
+            //O que fazer em caso de sucesso
+            function( pager: any ) {
+                that.pagerGeneros = pager;
+            },
+            //O que fazer em caso de falha
+            function( error: any ) {
+                console.log( error )
             })
-            .catch( function( err: any ) {
-                console.error( err );
-            });
     }
 
     ngOnInit() {
-        this.getGeneros();
+        this.getPageGeneros();
     }
 }
