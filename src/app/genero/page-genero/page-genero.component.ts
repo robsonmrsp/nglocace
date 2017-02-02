@@ -11,9 +11,21 @@ import { GeneroService } from './../genero.service';
 export class PageGeneroComponent implements OnInit {
 
     pagerGeneros: any = {};
-    dataTableConfig : any = {
-            
-    } 
+
+    dataTableConfig: any = {
+        page: {
+            itens: [],
+            actualPage: 0,
+            totalRecords: 0
+        },
+        config: {
+            page: 1,
+            pageSize: 10,
+            totalPages: null,
+            orderBy: 'id',
+            direction: 'desc',
+        }
+    }
 
     constructor( private generoService: GeneroService ) { }
 
