@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GeneroService } from './../genero.service';
+import { DatatablePageConfig } from 'app/components/models/datatable-page-config';
 
 @Component( {
     selector: 'app-page-genero',
@@ -10,43 +11,41 @@ import { GeneroService } from './../genero.service';
 
 export class PageGeneroComponent implements OnInit {
 
-    pagerGeneros: any = {};
+    /**
+     * Na pratica, quase todo mundo (sorter, counter e o paginator ) alterará esse objeto. e ele será utilizado para realizar a consulta.
+     */
+    datatableConfig: DatatablePageConfig = new DatatablePageConfig();
 
-    dataTableConfig: any = {
-        page: {
-            itens: [],
-            actualPage: 0,
-            totalRecords: 0
-        },
-        config: {
-            page: 1,
-            pageSize: 10,
-            totalPages: null,
-            orderBy: 'id',
-            direction: 'desc',
-        }
-    }
 
     constructor( private generoService: GeneroService ) { }
 
-
     /**
-     * carregando todos os generos.
+     * carregando todos os generos. Simplificar o uso disso com a passagem simples de dois calbacks, o success e o error. COMO TODOS ESTÃO MAIS ACOSTUMADOS
      */
     getPageGeneros() {
         var that = this;
 
-        this.generoService.getPageAll()
+        this.generoService.getPageAll( this.datatableConfig )
             .subscribe(
             //O que fazer em caso de sucesso
             function( pager: any ) {
-                that.pagerGeneros = pager;
+                that.datatableConfig.page = pager;
                 console.log( 'Pager: ' + JSON.stringify( pager ) );
             },
             //O que fazer em caso de falha
             function( error: any ) {
                 console.log( error )
             })
+    }
+
+
+    /**
+     * Esse método será executado como o searchGenero o é no backbone
+     * 
+     */
+    public paging( object: any ) {
+        this.getPageGeneros();
+        console.log( JSON.stringify( this.datatableConfig ) );
     }
 
     editGenero( genero: any ) {
@@ -57,11 +56,8 @@ export class PageGeneroComponent implements OnInit {
         console.log( 'removendo... ' + genero.nome )
     }
 
-    public paging( object: any ) {
-        console.log( JSON.stringify( object ) );
-    }
     ngOnInit() {
-        this.getPageGeneros();
+        this.paging( null );
     }
 
 }

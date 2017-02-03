@@ -74,23 +74,16 @@
 												<thead>
 													<tr>
 														<th class="renderable nome">
-															<a datatableSort [sortName]="'nome'" (sortChanged)="paging($event)">Nome &nbsp; </a>
+															<a [datatableSort]='datatableConfig' [sortName]="'nome'" (sortChanged)="paging($event)">Nome &nbsp; </a>
 														</th>
 														<th class="renderable descricao">
-															<a datatableSort [sortName]="'descricao'" (sortChanged)="paging($event)"> Descrição &nbsp; </a>
+															<a [datatableSort]='datatableConfig' [sortName]="'descricao'" (sortChanged)="paging($event)"> Descrição &nbsp; </a>
 														</th>
 														<th class="renderable acoes">Ações(Editar, Deletar)</th>
-														<th class="editable renderable header-cell-manage-tool">
-															<div>
-																<a href="javascript:void()" class="" data-toggle="tooltip" data-placement="top" title="" data-original-title="Exibir/Ocultar colunas">
-																	<i class="fa fa-columns" aria-hidden="true"></i>
-																</a>
-															</div>
-														</th>
 													</tr>
 												</thead>
 												<tbody>
-													<tr *ngFor="let genero of pagerGeneros.itens;">
+													<tr *ngFor="let genero of datatableConfig.page.itens;">
 														<td>{{genero.nome}}</td>
 														<td>{{genero.descricao}}</td>
 														<td class="td-actions ">

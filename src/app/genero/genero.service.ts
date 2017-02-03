@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Http, Response, Headers, RequestOptions, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
+
+import { DatatablePageConfig } from 'app/components/models/datatable-page-config';
 
 @Injectable()
 export class GeneroService {
@@ -9,19 +11,32 @@ export class GeneroService {
     constructor( private http: Http ) { }
 
 
-    private generosUrl = 'http://localhost:8083/locace/rs/crud/generos';
+    private generosUrl = 'http://localhost:8080/locace/rs/crud/generos';
 
     createAuthorizationHeader( headers: Headers ) {
         headers.append( 'Authorization', 'Basic ' +
             btoa( 'mr:123456' ) );
     }
 
-    getPageAll(): Observable<any> {
+    getPageAll( datatablePageConfig: DatatablePageConfig ): Observable<any> {
         let headers = new Headers();
+        let jsonParans = {};
+
         this.createAuthorizationHeader( headers );
 
+
+
+        Object.assign( jsonParans, datatablePageConfig.config, datatablePageConfig.filterParameters );
+
+        let params: URLSearchParams = new URLSearchParams();
+        for ( let key in jsonParans ) {
+            params.set( key, jsonParans[key] );
+        }
+
+
         return this.http.get( this.generosUrl, {
-            headers: headers
+            headers: headers,
+            search: params
         }).map( function( res: Response ) {
             console.log( res )
             //deve Devolver um Pager de Genero
