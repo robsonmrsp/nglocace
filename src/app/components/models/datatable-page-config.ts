@@ -8,7 +8,7 @@ export class Page {
 export class Config {
     public page: Number = 1;
     public pageSize: Number = 10;
-    public totalPages: null;
+    public totalPages: Number = 1;
     public orderBy: String = 'id';
     public direction: String = 'desc';
 }

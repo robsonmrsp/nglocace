@@ -20,16 +20,16 @@ export class GeneroComponent implements OnInit {
     getPageGeneros() {
         var that = this;
 
-        this.generoService.getPageAll()
-            .subscribe(
-            //O que fazer em caso de sucesso
-            function( pager: any ) {
-                that.pagerGeneros = pager;
-            },
-            //O que fazer em caso de falha
-            function( error: any ) {
-                console.log( error )
-            })
+//        this.generoService.getPageAll()
+//            .subscribe(
+//            //O que fazer em caso de sucesso
+//            function( pager: any ) {
+//                that.pagerGeneros = pager;
+//            },
+//            //O que fazer em caso de falha
+//            function( error: any ) {
+//                console.log( error )
+//            })
     }
 
     ngOnInit() {
