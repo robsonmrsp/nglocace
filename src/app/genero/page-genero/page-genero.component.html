@@ -32,99 +32,100 @@
 										</div>
 									</div>
 								</div>
-								<div class="">
-									<div class="float-right ">
+								<div class="row">
+									<div class="col-md-12 float-right ">
 										<small class="">
-											<a href="javascript:void(-1)"> Filtros avançados </a>
+											<a href="javascript:void(-1)" (click)="showAdvanceSearch = !showAdvanceSearch" [attr.aria-expanded]="showAdvanceSearch" aria-controls="advanceSearcFields"> Filtros avançados </a>
 										</small>
 									</div>
-									<div class="">
-										<!-- inicio dos registros-->
-										<div id="groupInputNome" class="form-group col-sm-	col-md-	col-lg-  ">
-											<label class="control-label" for="inputNome">Nome</label>
-											<input type="text" id="inputNome" placeholder="Pesquise pelo Nome" class="form-control">
-										</div>
-										<div id="groupInputDescricao" class="form-group col-sm-	col-md-	col-lg-  ">
-											<label class="control-label" for="inputDescricao">Descrição</label>
-											<input type="text" id="inputDescricao" placeholder="Pesquise pelo Descrição" class="form-control">
-										</div>
-										<div class=" ">
-											<button type="button" class="btn btn-info btn-sm search-button loading-button" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Pesquisando...">
-												<i class="ace-icon fa fa-search bigger-110"></i>
-												Pesquisar
-											</button>
+								</div>
+								<div class="advanceSearcFields" id="advanceSearcFields" [ngbCollapse]="!showAdvanceSearch">
+									<div class="card-block">
+										<div>
+											<div id="groupInputNome" class="form-group col-sm-	col-md-	col-lg-  ">
+												<label class="control-label" for="inputNome">Nome</label>
+												<input type="text" id="inputNome" placeholder="Pesquise pelo Nome" class="form-control">
+											</div>
+											<div id="groupInputDescricao" class="form-group col-sm-	col-md-	col-lg-  ">
+												<label class="control-label" for="inputDescricao">Descrição</label>
+												<input type="text" id="inputDescricao" placeholder="Pesquise pelo Descrição" class="form-control">
+											</div>
+											<div class=" ">
+												<button type="button" class="btn btn-info btn-sm ">
+													<i class="ace-icon fa fa-search "></i>
+													Pesquisar
+												</button>
+											</div>
 										</div>
 									</div>
 								</div>
-								<div class="center">
-									<div class="card">
-										<div class="card-header">
-											<i *ngIf="!datatableConfig.loading" class="fa fa-align-justify"></i>
-											<i *ngIf="datatableConfig.loading" class="fa fa-spinner fa-spin fa-fw"></i>
-											Resultado da pesquisa
-										</div>
-										<div class="card-block">
-											<table class="table table-striped">
-												<thead>
-													<tr>
-														<th class="renderable nome">
-															<a [datatableSort]='datatableConfig' [sortName]="'nome'" (sortChanged)="paging($event)">
-																<i class="fa fa-sort" aria-hidden="true"></i>
-																&nbsp; Nome
-															</a>
-														</th>
-														<th class="renderable descricao">
-															<a [datatableSort]='datatableConfig' [sortName]="'descricao'" (sortChanged)="paging($event)">
-																<i class="fa fa-sort" aria-hidden="true"></i>
-																&nbsp;Descrição
-															</a>
-														</th>
-														<th class="renderable action-butons-cell">Ações</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr *ngFor="let genero of datatableConfig.page.itens;">
-														<td>{{genero.nome}}</td>
-														<td>{{genero.descricao}}</td>
-														<td class="td-actions action-butons-cell">
-															<a href="javascript:void(-1)" class="btn btn-sm  btn-primary " (click)="editGenero(genero)" data-toggle="tooltip" data-placement="top" title="" data-original-title="Editar Gênero">
-																<i class="fa fa-pencil fa-lg"></i>
-															</a>
-															<a href="javascript:void(-1)" class="btn btn-sm btn-danger " (click)="removeGenero(genero)" data-toggle="tooltip" data-placement="top" title="" data-original-title="Remover Gênero">
-																<i class="fa fa-trash fa-lg"></i>
-															</a>
-														</td>
-													</tr>
-												</tbody>
-											</table>
+								<div class="card">
+									<div class="card-header">
+										<i *ngIf="!datatableConfig.loading" class="fa fa-align-justify"></i>
+										<i *ngIf="datatableConfig.loading" class="fa fa-spinner fa-spin fa-fw"></i>
+										Resultado da pesquisa
+									</div>
+									<div class="card-block">
+										<table class="table table-striped">
+											<thead>
+												<tr>
+													<th class="renderable nome">
+														<a [datatableSort]='datatableConfig' [sortName]="'nome'" (sortChanged)="paging($event)">
+															<i class="fa fa-sort" aria-hidden="true"></i>
+															&nbsp; Nome
+														</a>
+													</th>
+													<th class="renderable descricao">
+														<a [datatableSort]='datatableConfig' [sortName]="'descricao'" (sortChanged)="paging($event)">
+															<i class="fa fa-sort" aria-hidden="true"></i>
+															&nbsp;Descrição
+														</a>
+													</th>
+													<th class="renderable action-butons-cell">Ações</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr *ngFor="let genero of datatableConfig.page.itens;">
+													<td>{{genero.nome}}</td>
+													<td>{{genero.descricao}}</td>
+													<td class="td-actions action-butons-cell">
+														<a href="javascript:void(-1)" class="btn btn-sm  btn-primary " (click)="editGenero(genero)" data-toggle="tooltip" data-placement="top" title="" data-original-title="Editar Gênero">
+															<i class="fa fa-pencil fa-lg"></i>
+														</a>
+														<a href="javascript:void(-1)" class="btn btn-sm btn-danger " (click)="removeGenero(genero)" data-toggle="tooltip" data-placement="top" title="" data-original-title="Remover Gênero">
+															<i class="fa fa-trash fa-lg"></i>
+														</a>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="row ">
+									<div class="counter col-md-6" style="text-align: left; margin: 15px 0">
+										<div class=" float-left ">
+											<span class="has-elements" style="display: inline;">
+												Registros
+												<span class="initial-page">1</span>
+												a
+												<span class="final-page">{{datatableConfig.config.pageSize}}</span>
+												de
+												<span class="total-records">{{datatableConfig.page.totalRecords}}</span>
+												. Exibindo até
+												<select class="combo-page-size" [(ngModel)]="datatableConfig.config.pageSize" (change)="paging($event)" style="padding: 0 0 0 0; height: 20px">
+													<option [value]="3">3</option>
+													<option [value]="5">5</option>
+													<option [value]="10">10</option>
+													<option [value]="25">25</option>
+													<option [value]="50">50</option>
+												</select>
+												por página.
+											</span>
 										</div>
 									</div>
-									<div class="row ">
-										<div class="counter col-md-6" style="text-align: left; margin: 15px 0">
-											<div class=" float-left ">
-												<span class="has-elements" style="display: inline;">
-													Registros
-													<span class="initial-page">1</span>
-													a
-													<span class="final-page">{{datatableConfig.config.pageSize}}</span>
-													de
-													<span class="total-records">{{datatableConfig.page.totalRecords}}</span>
-													. Exibindo até
-													<select class="combo-page-size" [(ngModel)]="datatableConfig.config.pageSize" (change)="paging($event)" style="padding: 0 0 0 0; height: 20px">
-														<option [value]="3">3</option>
-														<option [value]="5">5</option>
-														<option [value]="10">10</option>
-														<option [value]="25">25</option>
-														<option [value]="50">50</option>
-													</select>
-													por página.
-												</span>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class=" paging_simple_numbers float-right ">
-												<ngb-pagination [collectionSize]="datatableConfig.page.totalRecords" [(page)]="datatableConfig.config.page" (pageChange)="paging($event)" [(pageSize)]="datatableConfig.config.pageSize" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
-											</div>
+									<div class="col-md-6">
+										<div class=" paging_simple_numbers float-right ">
+											<ngb-pagination [collectionSize]="datatableConfig.page.totalRecords" [(page)]="datatableConfig.config.page" (pageChange)="paging($event)" [(pageSize)]="datatableConfig.config.pageSize" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
 										</div>
 									</div>
 								</div>

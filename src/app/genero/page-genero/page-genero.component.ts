@@ -14,6 +14,8 @@ export class PageGeneroComponent implements OnInit {
     /**
      * Na pratica, quase todo mundo (sorter, counter e o paginator ) alterará esse objeto. e ele será utilizado para realizar a consulta.
      */
+    public showAdvanceSearch: boolean = false;
+    public isCollapsed: boolean = false;
     public datatableConfig: DatatablePageConfig = new DatatablePageConfig();
 
     public tamanhoPagina: Number = 10;

@@ -50,7 +50,7 @@ export class DatatableSortDirective {
                 this.direction = 'asc';
                 this.datatableConfig.config.direction = 'asc';
                 this.datatableConfig.config.orderBy = this.sortName;
-                icon.className = "fa fa-asc"
+                icon.className = "fa fa-sort-asc"
                 break;
         }
 
