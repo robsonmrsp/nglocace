@@ -113,23 +113,7 @@
 										</div>
 										<div class="col-md-6">
 											<div class=" paging_simple_numbers float-right ">
-												<ul class="pagination">
-													<li class="disabled">
-														<a href="#" title="First">《</a>
-													</li>
-													<li class="disabled">
-														<a href="#" title="Previous">〈</a>
-													</li>
-													<li class="active">
-														<a href="#" title="Page <%- label %>">1</a>
-													</li>
-													<li class="disabled">
-														<a href="#" title="Next">〉</a>
-													</li>
-													<li class="disabled">
-														<a href="#" title="Last">》</a>
-													</li>
-												</ul>
+												<ngb-pagination [collectionSize]="datatableConfig.config.totalPages" [(page)]="datatableConfig.config.page"  (pageChange)="paging($event)" [maxSize]="datatableConfig.config.pageSize" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
 											</div>
 										</div>
 									</div>
