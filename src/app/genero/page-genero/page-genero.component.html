@@ -68,12 +68,18 @@
 												<thead>
 													<tr>
 														<th class="renderable nome">
-															<a [datatableSort]='datatableConfig' [sortName]="'nome'" (sortChanged)="paging($event)">Nome &nbsp; </a>
+															<a [datatableSort]='datatableConfig' [sortName]="'nome'" (sortChanged)="paging($event)">
+																<i class="fa fa-sort" aria-hidden="true"></i>
+																&nbsp; Nome
+															</a>
 														</th>
 														<th class="renderable descricao">
-															<a [datatableSort]='datatableConfig' [sortName]="'descricao'" (sortChanged)="paging($event)"> Descrição &nbsp; </a>
+															<a [datatableSort]='datatableConfig' [sortName]="'descricao'" (sortChanged)="paging($event)">
+																<i class="fa fa-sort" aria-hidden="true"></i>
+																&nbsp;Descrição
+															</a>
 														</th>
-														<th class="renderable action-butons-cell">Ações(Editar, Deletar)</th>
+														<th class="renderable action-butons-cell">Ações</th>
 													</tr>
 												</thead>
 												<tbody>
