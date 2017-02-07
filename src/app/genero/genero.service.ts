@@ -11,7 +11,7 @@ export class GeneroService {
     constructor( private http: Http ) { }
 
 
-    private generosUrl = 'http://localhost:8080/locace/rs/crud/generos';
+    private generosUrl = 'http://localhost:8083/locace/rs/crud/generos';
 
     createAuthorizationHeader( headers: Headers ) {
         headers.append( 'Authorization', 'Basic ' +
@@ -27,7 +27,7 @@ export class GeneroService {
 
 
         Object.assign( jsonParans, datatablePageConfig.config, datatablePageConfig.filterParameters );
-
+        datatablePageConfig.loading=true;
         let params: URLSearchParams = new URLSearchParams();
         for ( let key in jsonParans ) {
             params.set( key, jsonParans[key] );
@@ -40,6 +40,7 @@ export class GeneroService {
         }).map( function( res: Response ) {
             console.log( res )
             //deve Devolver um Pager de Genero
+            datatablePageConfig.loading=false;
             return res.json()
         }).catch( function( err: any ) {
             console.log( err )

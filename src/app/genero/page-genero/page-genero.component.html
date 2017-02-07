@@ -57,38 +57,40 @@
 									</div>
 								</div>
 								<div class="center">
-									<div class="row center">
-										<div class="col-md-12">
-											<div class="messages-grid"></div>
-											<div class="table-responsive grid">
-												<table class="table backgrid table-striped table-bordered table-hover dataTable no-footer  ">
-													<thead>
-														<tr>
-															<th class="renderable nome">
-																<a [datatableSort]='datatableConfig' [sortName]="'nome'" (sortChanged)="paging($event)">Nome &nbsp; </a>
-															</th>
-															<th class="renderable descricao">
-																<a [datatableSort]='datatableConfig' [sortName]="'descricao'" (sortChanged)="paging($event)"> Descrição &nbsp; </a>
-															</th>
-															<th class="renderable acoes">Ações(Editar, Deletar)</th>
-														</tr>
-													</thead>
-													<tbody>
-														<tr *ngFor="let genero of datatableConfig.page.itens;">
-															<td>{{genero.nome}}</td>
-															<td>{{genero.descricao}}</td>
-															<td class="td-actions ">
-																<a href="javascript:void(-1)" class="btn btn-xs button_cell btn-primary " (click)="editGenero(genero)" data-toggle="tooltip" data-placement="top" title="" data-original-title="Editar Gênero">
-																	<i class="fa fa-pencil fa-lg"></i>
-																</a>
-																<a href="javascript:void(-1)" class="btn btn-xs button_cell btn-danger " (click)="removeGenero(genero)" data-toggle="tooltip" data-placement="top" title="" data-original-title="Remover Gênero">
-																	<i class="fa fa-trash fa-lg"></i>
-																</a>
-															</td>
-														</tr>
-													</tbody>
-												</table>
-											</div>
+									<div class="card">
+										<div class="card-header">
+											<i *ngIf="!datatableConfig.loading" class="fa fa-align-justify"></i>
+											<i *ngIf="datatableConfig.loading" class="fa fa-spinner fa-spin fa-fw"></i>
+											Resultado da pesquisa
+										</div>
+										<div class="card-block">
+											<table class="table table-striped">
+												<thead>
+													<tr>
+														<th class="renderable nome">
+															<a [datatableSort]='datatableConfig' [sortName]="'nome'" (sortChanged)="paging($event)">Nome &nbsp; </a>
+														</th>
+														<th class="renderable descricao">
+															<a [datatableSort]='datatableConfig' [sortName]="'descricao'" (sortChanged)="paging($event)"> Descrição &nbsp; </a>
+														</th>
+														<th class="renderable action-butons-cell">Ações(Editar, Deletar)</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr *ngFor="let genero of datatableConfig.page.itens;">
+														<td>{{genero.nome}}</td>
+														<td>{{genero.descricao}}</td>
+														<td class="td-actions action-butons-cell">
+															<a href="javascript:void(-1)" class="btn btn-sm  btn-primary " (click)="editGenero(genero)" data-toggle="tooltip" data-placement="top" title="" data-original-title="Editar Gênero">
+																<i class="fa fa-pencil fa-lg"></i>
+															</a>
+															<a href="javascript:void(-1)" class="btn btn-sm btn-danger " (click)="removeGenero(genero)" data-toggle="tooltip" data-placement="top" title="" data-original-title="Remover Gênero">
+																<i class="fa fa-trash fa-lg"></i>
+															</a>
+														</td>
+													</tr>
+												</tbody>
+											</table>
 										</div>
 									</div>
 									<div class="row ">
@@ -98,11 +100,13 @@
 													Registros
 													<span class="initial-page">1</span>
 													a
-													<span class="final-page">2</span>
+													<span class="final-page">{{datatableConfig.config.pageSize}}</span>
 													de
-													<span class="total-records">2</span>
+													<span class="total-records">{{datatableConfig.page.totalRecords}}</span>
 													. Exibindo até
 													<select class="combo-page-size" [(ngModel)]="datatableConfig.config.pageSize" (change)="paging($event)" style="padding: 0 0 0 0; height: 20px">
+														<option [value]="3">3</option>
+														<option [value]="5">5</option>
 														<option [value]="10">10</option>
 														<option [value]="25">25</option>
 														<option [value]="50">50</option>
@@ -113,7 +117,7 @@
 										</div>
 										<div class="col-md-6">
 											<div class=" paging_simple_numbers float-right ">
-												<ngb-pagination [collectionSize]="datatableConfig.config.totalPages" [(page)]="datatableConfig.config.page"  (pageChange)="paging($event)" [maxSize]="datatableConfig.config.pageSize" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+												<ngb-pagination [collectionSize]="datatableConfig.page.totalRecords" [(page)]="datatableConfig.config.page" (pageChange)="paging($event)" [(pageSize)]="datatableConfig.config.pageSize" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
 											</div>
 										</div>
 									</div>
