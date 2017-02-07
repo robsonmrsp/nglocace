@@ -21,15 +21,17 @@
       "styles": [
         "styles.css",
         "../node_modules/bootstrap/dist/css/bootstrap.css",
-        "assets/theme/ace.css",
-        "assets/font-awesome-4.7.0/css/font-awesome.css"
+        "assets/font-awesome-4.7.0/css/font-awesome.css",
+        "assets/theme/css/style.css",
+        "assets/theme/css/simple-line-icons.css"
       ],
       "scripts": [
       	"../node_modules/jquery/dist/jquery.js",
+      	"../node_modules/tether/dist/js/tether.js",
       	"../node_modules/bootstrap/dist/js/bootstrap.js",
-      	"assets/theme/ace.js",
-      	"assets/theme/ace.settings.js",
-      	"assets/theme/ace.sidebar.js"
+        
+      	"assets/theme/js/app.js"
+      	
       ],
       "environments": {
         "source": "environments/environment.ts",
