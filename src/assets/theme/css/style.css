@@ -10589,7 +10589,15 @@ app-root {
   flex: 0 0 55px; }
 
 .app-footer {
-  flex: 0 0 50px; }
+  flex: 0 0 50px; 
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;
+   background:#999;
+
+  }
 
 .app-body {
   display: flex;
@@ -10607,6 +10615,7 @@ app-root {
 .header-fixed .app-header {
   position: fixed;
   z-index: 1000;
+  
   width: 100%; }
 
 .header-fixed .app-body {

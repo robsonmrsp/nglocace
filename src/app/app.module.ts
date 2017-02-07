@@ -5,6 +5,9 @@ import { HttpModule } from '@angular/http';
 
 
 import { AppComponent } from './app.component';
+
+import { routing } from './app.routing';
+
 import { FilmeComponent } from './filme/filme.component';
 import { GeneroComponent } from './genero/genero.component';
 import { PageGeneroComponent } from './genero/page-genero/page-genero.component';
@@ -24,7 +27,8 @@ import { HomeComponent } from './home/home.component';
     imports: [
         BrowserModule,
         FormsModule,
-        HttpModule
+        HttpModule,
+        routing
     ],
     providers: [],
     bootstrap: [AppComponent]
