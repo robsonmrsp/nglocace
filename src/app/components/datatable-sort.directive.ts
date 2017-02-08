@@ -33,24 +33,29 @@ export class DatatableSortDirective {
             event.preventDefault();
         }
         let icon = this.el.nativeElement.querySelector( 'i' )
+
+        let allIcons = this.el.nativeElement.parentElement.parentElement.querySelectorAll( 'i' );
+        allIcons.forEach( function( ico ) {
+            ico.className = "fa fa-arrows-v"
+        })
         switch ( this.direction ) {
             case 'asc':
                 this.direction = 'desc';
                 this.datatableConfig.config.direction = 'desc';
                 this.datatableConfig.config.orderBy = this.sortName;
-                icon.className = "fa fa-sort-desc"
+                icon.className = "fa fa-sort-alpha-desc"
                 break;
             case 'desc':
                 this.direction = '';
                 this.datatableConfig.config.direction = '';
                 this.datatableConfig.config.orderBy = '';
-                icon.className = "fa fa-sort"
+                icon.className = "fa fa-arrows-v"
                 break;
             default:
                 this.direction = 'asc';
                 this.datatableConfig.config.direction = 'asc';
                 this.datatableConfig.config.orderBy = this.sortName;
-                icon.className = "fa fa-sort-asc"
+                icon.className = "fa fa-sort-alpha-asc"
                 break;
         }
 

@@ -18,13 +18,13 @@
 											Novo Registro
 										</a>
 										&nbsp; &nbsp; &nbsp;
-										<a href="javascript:void(0)" class="btn btn-secondary">Limpar</a>
+										<a href="javascript:void(0)" class="btn btn-secondary" (click)="reset()">Limpar</a>
 									</div>
 									<div class="col-md-6">
 										<div class="input-group">
-											<input id="inputNome" type="text" class="clearable form-control search-query" placeholder="Pesquisar Gênero por Nome">
+											<input id="inputNome" type="text" class="clearable form-control" [(ngModel)]="datatableConfig.filterParameters.nome" placeholder="Pesquisar Gênero por Nome">
 											<span id="query" class="input-group-btn ">
-												<button type="button" class="btn btn-inverse btn-white search-button loading-button" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Pesquisando...">
+												<button type="button"  class="btn btn-inverse btn-white" (click)="paging($event)">
 													<span class="ace-icon fa fa-search icon-on-right bigger-110 "></span>
 													Pesquisar
 												</button>
@@ -44,14 +44,14 @@
 										<div>
 											<div id="groupInputNome" class="form-group col-sm-	col-md-	col-lg-  ">
 												<label class="control-label" for="inputNome">Nome</label>
-												<input type="text" id="inputNome" placeholder="Pesquise pelo Nome" class="form-control">
+												<input type="text" id="inputNome" [(ngModel)]="datatableConfig.filterParameters.nome" placeholder="Pesquise pelo Nome" class="form-control">
 											</div>
 											<div id="groupInputDescricao" class="form-group col-sm-	col-md-	col-lg-  ">
 												<label class="control-label" for="inputDescricao">Descrição</label>
-												<input type="text" id="inputDescricao" placeholder="Pesquise pelo Descrição" class="form-control">
+												<input type="text" id="inputDescricao" [(ngModel)]="datatableConfig.filterParameters.descricao" placeholder="Pesquise pelo Descrição" class="form-control">
 											</div>
 											<div class=" ">
-												<button type="button" class="btn btn-info btn-sm ">
+												<button type="button" class="btn btn-info btn-sm " (click)="paging($event)">
 													<i class="ace-icon fa fa-search "></i>
 													Pesquisar
 												</button>
@@ -71,13 +71,13 @@
 												<tr>
 													<th class="renderable nome">
 														<a [datatableSort]='datatableConfig' [sortName]="'nome'" (sortChanged)="paging($event)">
-															<i class="fa fa-sort" aria-hidden="true"></i>
+															<i class="fa fa-arrows-v" aria-hidden="true"></i>
 															&nbsp; Nome
 														</a>
 													</th>
 													<th class="renderable descricao">
 														<a [datatableSort]='datatableConfig' [sortName]="'descricao'" (sortChanged)="paging($event)">
-															<i class="fa fa-sort" aria-hidden="true"></i>
+															<i class="fa fa-arrows-v" aria-hidden="true"></i>
 															&nbsp;Descrição
 														</a>
 													</th>

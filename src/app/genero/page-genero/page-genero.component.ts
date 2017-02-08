@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GeneroService } from './../genero.service';
 import { DatatablePageConfig } from 'app/components/models/datatable-page-config';
+import { Genero } from 'app/components/models/genero';
 
 @Component( {
     selector: 'app-page-genero',
@@ -18,7 +19,10 @@ export class PageGeneroComponent implements OnInit {
     public isCollapsed: boolean = false;
     public datatableConfig: DatatablePageConfig = new DatatablePageConfig();
 
-    constructor( private generoService: GeneroService ) { }
+
+    constructor( private generoService: GeneroService ) {
+        this.datatableConfig.filterParameters = { nome: '', descricao: '' };
+    }
 
     /**
      * Esse método será executado como o searchGenero o é no backbone
@@ -27,6 +31,10 @@ export class PageGeneroComponent implements OnInit {
         this.getPageGeneros();
     }
 
+    public reset( object: any ) {
+        this.datatableConfig = new DatatablePageConfig();
+        this.datatableConfig.filterParameters = { nome: '', descricao: '' };
+    }
     /**
      * carregando todos os generos. Simplificar o uso disso com a passagem simples de dois calbacks, o success e o error. COMO TODOS ESTÃO MAIS ACOSTUMADOS
      */
@@ -42,7 +50,8 @@ export class PageGeneroComponent implements OnInit {
                 console.log( error )
             })
     }
-    
+
+
     editGenero( genero: any ) {
         console.log( 'editando... ' + genero.nome )
     }
@@ -54,5 +63,4 @@ export class PageGeneroComponent implements OnInit {
     ngOnInit() {
         this.paging( null );
     }
-
 }

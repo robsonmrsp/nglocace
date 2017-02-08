@@ -13,9 +13,9 @@ export class Config {
     public direction: String = 'desc';
 }
 
-export class DatatablePageConfig {
+export class DatatablePageConfig{
     public page: Page = new Page();
     public loading: boolean = false;
     public config: Config = new Config();
-    public filterParameters: any = {};
+    public filterParameters: any;
 }

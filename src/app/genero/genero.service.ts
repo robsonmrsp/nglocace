@@ -14,6 +14,8 @@ export class GeneroService {
     getPageAll( datatablePageConfig: DatatablePageConfig, successCallback: any, errorCallback: any ): void {
         let headers = RequestUtils.createAuthHeaders();
 
+        datatablePageConfig.loading = true;
+
         let parans = RequestUtils.createParans( datatablePageConfig );
 
         this.http.get( RequestUtils.getBaseUrl() + '/rs/crud/generos', {
