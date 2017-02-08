@@ -1,7 +1,7 @@
 
 export class Page {
     public itens: any[] = [];
-    public actualPage: Number = 0;
+    public actualPage: Number = 1;
     public totalRecords: Number = 0;
 
 }
