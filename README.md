@@ -1,3 +1,11 @@
+## Instalando o jquery no angular:
+npm install @types/jquery
+
+Para usar algum pluguin sem que o compilador typescript apresente erro, basta adicionar a entrada no arquivo '/node_modules/@types/jquery/index.d.ts' como foi feito para o inputmask 
+inputmask( mask: string )
+
+
+
 ##Site com algumas boas informações
 http://aprendaangular2.online/es6/promises
 

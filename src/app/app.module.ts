@@ -17,6 +17,7 @@ import { DatatableSortDirective } from './components/datatable-sort.directive';
 import { HomeComponent } from './home/home.component';
 import { FormGeneroComponent } from './genero/form-genero/form-genero.component';
 import { MaskDirective } from './components/mask.directive';
+import { FormValidatorDirective } from './components/form-validator.directive';
 
 
 @NgModule( {
@@ -28,7 +29,8 @@ import { MaskDirective } from './components/mask.directive';
         DatatableSortDirective,
         HomeComponent,
         FormGeneroComponent,
-        MaskDirective
+        MaskDirective,
+        FormValidatorDirective
     ],
     imports: [
         NgbModule.forRoot(),
