@@ -18,8 +18,6 @@ export class PageGeneroComponent implements OnInit {
     public isCollapsed: boolean = false;
     public datatableConfig: DatatablePageConfig = new DatatablePageConfig();
 
-    public tamanhoPagina: Number = 10;
-
     constructor( private generoService: GeneroService ) { }
 
     /**
