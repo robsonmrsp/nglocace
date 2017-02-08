@@ -73,6 +73,15 @@ $(document).ready(function($) {
 			}, 62.5);
 		}
 
+		var $header = $('header');
+		var $footer = $('footer');
+		var $content = $('.sidebar');
+		var $window = $(window).on('resize', function() {
+			var height = $(this).height() - ($header.height() + $footer.height());
+			$content.height(height);
+			console.log('window' + $(this).height())
+		}).trigger('resize'); // on page load
+
 		/* ---------- Main Menu Open/Close, Min/Full ---------- */
 		$('.navbar-toggler').click(function() {
 
@@ -102,7 +111,7 @@ $(document).ready(function($) {
 			e.preventDefault();
 		});
 
-	}, 2000);
+	}, 500);
 
 });
 
