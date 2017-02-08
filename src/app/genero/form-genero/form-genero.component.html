@@ -1,0 +1,32 @@
+<div class="card">
+	<div class="card-header">
+		<i class="ace-icon fa fa-wpforms"></i>
+		Formulário de cadastro de Gênero
+	</div>
+	<div class="card-block">
+		<div id="groupInputNome" class="form-group col-md-	  ">
+			<label class="control-label" for="inputNome">Nome</label>
+			<input type="text" id="inputNome" class="form-control" [(ngModel)]="genero.nome">
+		</div>
+		<div id="groupInputDescricao" class="form-group 	col-md-	 ">
+			<label class="control-label" for="inputDescricao">Descrição</label>
+			<input type="text" id="inputDescricao" class="form-control"  [(ngModel)]="genero.descricao">
+		</div>
+	</div>
+	<div class="card-footer">
+		<button type="button" class=" btn btn-primary " (click)="save()">
+			<i class="save fa fa-check "></i>
+			Salvar
+		</button>
+		&nbsp; &nbsp; &nbsp;
+		<button type="button" class="btn btn-info " (click)="save()">
+			<i class="fa fa-check bigger-110"></i>
+			Salvar e Continuar
+		</button>
+		&nbsp; &nbsp; &nbsp;
+		<a class="btn btn-secondary">
+			<i class="fa fa-undo " [routerLink]="['/generos']"></i>
+			Voltar para a listagem
+		</a>
+	</div>
+</div>

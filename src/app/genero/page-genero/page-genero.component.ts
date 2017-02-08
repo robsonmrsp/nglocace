@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { GeneroService } from './../genero.service';
+import { Router } from '@angular/router';
 import { DatatablePageConfig } from 'app/components/models/datatable-page-config';
+import { GeneroService } from './../genero.service';
 import { Genero } from 'app/components/models/genero';
 
 @Component( {
@@ -20,7 +21,7 @@ export class PageGeneroComponent implements OnInit {
     public datatableConfig: DatatablePageConfig = new DatatablePageConfig();
 
 
-    constructor( private generoService: GeneroService ) {
+    constructor( private generoService: GeneroService , private router : Router) {
         this.datatableConfig.filterParameters = { nome: '', descricao: '' };
     }
 
@@ -53,7 +54,7 @@ export class PageGeneroComponent implements OnInit {
 
 
     editGenero( genero: any ) {
-        console.log( 'editando... ' + genero.nome )
+        this.router.navigate(['/generos/new'])
     }
 
     removeGenero( genero: any ) {

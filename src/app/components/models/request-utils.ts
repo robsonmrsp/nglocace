@@ -21,12 +21,13 @@ export class RequestUtils {
     }
 
     public static getBaseUrl(): String {
-        return 'http://localhost:8080/locace'
+        return 'http://localhost:8083/locace'
     }
 
     public static createAuthHeaders(): Headers {
         let headers = new Headers();
         headers.append( 'Authorization', 'Basic ' + btoa( 'mr:123456' ) );
+        headers.append( 'Content-Type', 'application/json' );
         return headers;
     }
 

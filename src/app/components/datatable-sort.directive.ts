@@ -1,11 +1,13 @@
-import { Directive, ElementRef, Renderer, EventEmitter, Output, HostListener, Input } from '@angular/core';
+import { Directive, ElementRef, Renderer, EventEmitter, Output, HostListener, Input, AfterViewInit } from '@angular/core';
 
 import { DatatablePageConfig, Page, Config } from './models/datatable-page-config';
 
 @Directive( {
     selector: '[datatableSort]'
 })
-export class DatatableSortDirective {
+
+
+export class DatatableSortDirective implements AfterViewInit {
 
     @Output() public sortChanged: EventEmitter<any> = new EventEmitter();
     @Input( "datatableSort" ) public datatableConfig: DatatablePageConfig;
@@ -13,7 +15,10 @@ export class DatatableSortDirective {
     direction: string = '';
 
     constructor( private el: ElementRef, private render: Renderer ) {
+    }
 
+    ngAfterViewInit() {
+        console.log( this.el );
     }
 
     @Input()
