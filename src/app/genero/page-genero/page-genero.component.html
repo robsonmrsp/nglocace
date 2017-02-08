@@ -1,140 +1,138 @@
-<section>
-	<div class="breadcrumbs" id="breadcrumbs">
-		<ul class="breadcrumb">
-			<li>
-				<i class="ace-icon fa fa-home home-icon"></i>
-				<a href="#">Home</a>
-			</li>
-			<li class="active">Pesquisa Gênero</li>
-		</ul>
+<div class="breadcrumbs" id="breadcrumbs">
+	<ul class="breadcrumb">
+		<li>
+			<i class="ace-icon fa fa-home home-icon"></i>
+			<a href="#">Home</a>
+		</li>
+		<li class="active">Pesquisa Gênero</li>
+	</ul>
+</div>
+<div class="widget-box ">
+	<div class="widget-header widget-header-flat">
+		<h4 class="widget-title lighter">
+			<i class="ace-icon fa fa-search"></i>
+			Pesquisa de Gênero
+		</h4>
 	</div>
-	<div class="widget-box ">
-		<div class="widget-header widget-header-flat">
-			<h4 class="widget-title lighter">
-				<i class="ace-icon fa fa-search"></i>
-				Pesquisa de Gênero
-			</h4>
-		</div>
-		<div class="widget-body">
-			<div class="widget-main  ">
-				<div class="col-md-6">
-					<a href="#app/newGenero" class="btn btn-success  auth[new-genero, disable]">
-						<i class="fa fa-plus-circle"></i>
-						Novo Registro
-					</a>
-					&nbsp; &nbsp; &nbsp;
-					<a href="javascript:void(0)" class="btn reset reset-button">Limpar</a>
+	<div class="widget-body">
+		<div class="widget-main  ">
+			<div class="col-md-6">
+				<a href="#app/newGenero" class="btn btn-success  auth[new-genero, disable]">
+					<i class="fa fa-plus-circle"></i>
+					Novo Registro
+				</a>
+				&nbsp; &nbsp; &nbsp;
+				<a href="javascript:void(0)" class="btn reset reset-button">Limpar</a>
+			</div>
+			<div class="col-md-6">
+				<div class="input-group">
+					<input id="inputNome" type="text" class="clearable form-control search-query" placeholder="Pesquisar Gênero por Nome">
+					<span id="query" class="input-group-btn ">
+						<button type="button" class="btn btn-inverse btn-white search-button loading-button" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Pesquisando...">
+							<span class="ace-icon fa fa-search icon-on-right bigger-110 "></span>
+							Pesquisar
+						</button>
+					</span>
 				</div>
-				<div class="col-md-6">
-					<div class="input-group">
-						<input id="inputNome" type="text" class="clearable form-control search-query" placeholder="Pesquisar Gênero por Nome">
-						<span id="query" class="input-group-btn ">
-							<button type="button" class="btn btn-inverse btn-white search-button loading-button" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Pesquisando...">
-								<span class="ace-icon fa fa-search icon-on-right bigger-110 "></span>
-								Pesquisar
-							</button>
-						</span>
-					</div>
+			</div>
+			<div class="widget-box transparent ">
+				<div class="widget-header">
+					<h4 class="widget-title lighter">Filtros avançados</h4>
 				</div>
-				<div class="widget-box transparent ">
-					<div class="widget-header">
-						<h4 class="widget-title lighter">Filtros avançados</h4>
+				<div class="widget-body">
+					<!-- inicio dos registros-->
+					<div id="groupInputNome" class="form-group col-sm-	col-md-	col-lg-  ">
+						<label class="control-label" for="inputNome">Nome</label>
+						<input type="text" id="inputNome" placeholder="Pesquise pelo Nome" class="form-control">
 					</div>
-					<div class="widget-body">
-						<!-- inicio dos registros-->
-						<div id="groupInputNome" class="form-group col-sm-	col-md-	col-lg-  ">
-							<label class="control-label" for="inputNome">Nome</label>
-							<input type="text" id="inputNome" placeholder="Pesquise pelo Nome" class="form-control">
-						</div>
-						<div id="groupInputDescricao" class="form-group col-sm-	col-md-	col-lg-  ">
-							<label class="control-label" for="inputDescricao">Descrição</label>
-							<input type="text" id="inputDescricao" placeholder="Pesquise pelo Descrição" class="form-control">
-						</div>
-						<div class=" ">
-							<button type="button" class="btn btn-info btn-sm search-button loading-button" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Pesquisando...">
-								<i class="ace-icon fa fa-search bigger-110"></i>
-								Pesquisar
-							</button>
-						</div>
+					<div id="groupInputDescricao" class="form-group col-sm-	col-md-	col-lg-  ">
+						<label class="control-label" for="inputDescricao">Descrição</label>
+						<input type="text" id="inputDescricao" placeholder="Pesquise pelo Descrição" class="form-control">
+					</div>
+					<div class=" ">
+						<button type="button" class="btn btn-info btn-sm search-button loading-button" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Pesquisando...">
+							<i class="ace-icon fa fa-search bigger-110"></i>
+							Pesquisar
+						</button>
 					</div>
 				</div>
-				<div class="center">
-					<div class="col-md-12">
-						<div class="messages-grid"></div>
-						<div class="table-responsive grid">
-							<table class="table backgrid table-striped table-bordered table-hover dataTable no-footer  ">
-								<thead>
-									<tr>
-										<th class="renderable nome">
-											<a [datatableSort]='datatableConfig' [sortName]="'nome'" (sortChanged)="paging($event)">Nome &nbsp; </a>
-										</th>
-										<th class="renderable descricao">
-											<a [datatableSort]='datatableConfig' [sortName]="'descricao'" (sortChanged)="paging($event)"> Descrição &nbsp; </a>
-										</th>
-										<th class="renderable acoes">Ações(Editar, Deletar)</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr *ngFor="let genero of datatableConfig.page.itens;">
-										<td>{{genero.nome}}</td>
-										<td>{{genero.descricao}}</td>
-										<td class="td-actions ">
-											<a href="javascript:void(-1)" class="btn btn-xs button_cell btn-primary " (click)="editGenero(genero)" data-toggle="tooltip" data-placement="top" title="" data-original-title="Editar Gênero">
-												<i class="fa fa-pencil fa-lg"></i>
-											</a>
-											<a href="javascript:void(-1)" class="btn btn-xs button_cell btn-danger " (click)="removeGenero(genero)" data-toggle="tooltip" data-placement="top" title="" data-original-title="Remover Gênero">
-												<i class="fa fa-trash fa-lg"></i>
-											</a>
-										</td>
-									</tr>
-								</tbody>
-							</table>
+			</div>
+			<div class="center">
+				<div class="col-md-12">
+					<div class="messages-grid"></div>
+					<div class="table-responsive grid">
+						<table class="table backgrid table-striped table-bordered table-hover dataTable no-footer  ">
+							<thead>
+								<tr>
+									<th class="renderable nome">
+										<a [datatableSort]='datatableConfig' [sortName]="'nome'" (sortChanged)="paging($event)">Nome &nbsp; </a>
+									</th>
+									<th class="renderable descricao">
+										<a [datatableSort]='datatableConfig' [sortName]="'descricao'" (sortChanged)="paging($event)"> Descrição &nbsp; </a>
+									</th>
+									<th class="renderable acoes">Ações(Editar, Deletar)</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="let genero of datatableConfig.page.itens;">
+									<td>{{genero.nome}}</td>
+									<td>{{genero.descricao}}</td>
+									<td class="td-actions ">
+										<a href="javascript:void(-1)" class="btn btn-xs button_cell btn-primary " (click)="editGenero(genero)" data-toggle="tooltip" data-placement="top" title="" data-original-title="Editar Gênero">
+											<i class="fa fa-pencil fa-lg"></i>
+										</a>
+										<a href="javascript:void(-1)" class="btn btn-xs button_cell btn-danger " (click)="removeGenero(genero)" data-toggle="tooltip" data-placement="top" title="" data-original-title="Remover Gênero">
+											<i class="fa fa-trash fa-lg"></i>
+										</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="row ">
+					<div class="pull-left counter col-md-6" style="text-align: left; margin: 15px 0">
+						<div>
+							<span class="has-elements" style="display: inline;">
+								Registros
+								<span class="initial-page">1</span>
+								a
+								<span class="final-page">2</span>
+								de
+								<span class="total-records">2</span>
+								. Exibindo até
+								<select class="combo-page-size" [(ngModel)]="datatableConfig.config.pageSize" (change)="paging($event)" style="padding: 0 0 0 0; height: 20px">
+									<option [value]="10">10</option>
+									<option [value]="25">25</option>
+									<option [value]="50">50</option>
+								</select>
+								por página.
+							</span>
 						</div>
 					</div>
-					<div class="row ">
-						<div class="pull-left counter col-md-6" style="text-align: left; margin: 15px 0">
-							<div>
-								<span class="has-elements" style="display: inline;">
-									Registros
-									<span class="initial-page">1</span>
-									a
-									<span class="final-page">2</span>
-									de
-									<span class="total-records">2</span>
-									. Exibindo até
-									<select class="combo-page-size" [(ngModel)]="datatableConfig.config.pageSize" (change)="paging($event)" style="padding: 0 0 0 0; height: 20px">
-										<option [value]="10">10</option>
-										<option [value]="25">25</option>
-										<option [value]="50">50</option>
-									</select>
-									por página.
-								</span>
-							</div>
-						</div>
-						<div class="pull-right simple-pafination paginator col-md-6" style="text-align: right;">
-							<div class=" paging_simple_numbers">
-								<ul class="pagination">
-									<li class="disabled">
-										<a href="#" title="First">《</a>
-									</li>
-									<li class="disabled">
-										<a href="#" title="Previous">〈</a>
-									</li>
-									<li class="active">
-										<a href="#" title="Page <%- label %>">1</a>
-									</li>
-									<li class="disabled">
-										<a href="#" title="Next">〉</a>
-									</li>
-									<li class="disabled">
-										<a href="#" title="Last">》</a>
-									</li>
-								</ul>
-							</div>
+					<div class="pull-right simple-pafination paginator col-md-6" style="text-align: right;">
+						<div class=" paging_simple_numbers">
+							<ul class="pagination">
+								<li class="disabled">
+									<a href="#" title="First">《</a>
+								</li>
+								<li class="disabled">
+									<a href="#" title="Previous">〈</a>
+								</li>
+								<li class="active">
+									<a href="#" title="Page <%- label %>">1</a>
+								</li>
+								<li class="disabled">
+									<a href="#" title="Next">〉</a>
+								</li>
+								<li class="disabled">
+									<a href="#" title="Last">》</a>
+								</li>
+							</ul>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</section>
+</div>

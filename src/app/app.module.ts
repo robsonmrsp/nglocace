@@ -3,12 +3,18 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap'
+
 
 import { AppComponent } from './app.component';
+
+import { routing } from './app.routing';
+
 import { FilmeComponent } from './filme/filme.component';
 import { GeneroComponent } from './genero/genero.component';
 import { PageGeneroComponent } from './genero/page-genero/page-genero.component';
 import { DatatableSortDirective } from './components/datatable-sort.directive';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule( {
@@ -17,12 +23,15 @@ import { DatatableSortDirective } from './components/datatable-sort.directive';
         FilmeComponent,
         GeneroComponent,
         PageGeneroComponent,
-        DatatableSortDirective
+        DatatableSortDirective,
+        HomeComponent
     ],
     imports: [
+        NgbModule.forRoot(),
         BrowserModule,
         FormsModule,
-        HttpModule
+        HttpModule,
+        routing
     ],
     providers: [],
     bootstrap: [AppComponent]

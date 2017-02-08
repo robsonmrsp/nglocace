@@ -15,6 +15,7 @@ export class Config {
 
 export class DatatablePageConfig {
     public page: Page = new Page();
+    public loading: boolean = false;
     public config: Config = new Config();
     public filterParameters: any = {};
 }

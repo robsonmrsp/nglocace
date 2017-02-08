@@ -20,13 +20,13 @@ export class GeneroService {
             headers: headers,
             search: parans
         }).map( function( res: Response ) {
-            console.log( res )
-            //deve Devolver um Pager de Genero
+            datatablePageConfig.loading = false;
             return res.json()
         }).catch( function( err: any ) {
             console.error( err )
-
+            datatablePageConfig.loading = false;
             return Observable.throw( err.json().error || 'Server error' )
         }).subscribe( successCallback, errorCallback );
     }
+
 }
