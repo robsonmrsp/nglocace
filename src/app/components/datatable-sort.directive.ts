@@ -18,6 +18,7 @@ export class DatatableSortDirective implements AfterViewInit {
     }
 
     ngAfterViewInit() {
+        $( this.el.nativeElement ).attr( 'none', 'teste' );
         console.log( this.el );
     }
 

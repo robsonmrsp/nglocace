@@ -16,6 +16,7 @@ import { PageGeneroComponent } from './genero/page-genero/page-genero.component'
 import { DatatableSortDirective } from './components/datatable-sort.directive';
 import { HomeComponent } from './home/home.component';
 import { FormGeneroComponent } from './genero/form-genero/form-genero.component';
+import { MaskDirective } from './components/mask.directive';
 
 
 @NgModule( {
@@ -26,7 +27,8 @@ import { FormGeneroComponent } from './genero/form-genero/form-genero.component'
         PageGeneroComponent,
         DatatableSortDirective,
         HomeComponent,
-        FormGeneroComponent
+        FormGeneroComponent,
+        MaskDirective
     ],
     imports: [
         NgbModule.forRoot(),

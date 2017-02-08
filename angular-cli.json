@@ -29,6 +29,8 @@
       	"../node_modules/jquery/dist/jquery.js",
       	"../node_modules/tether/dist/js/tether.js",
       	"../node_modules/bootstrap/dist/js/bootstrap.js",
+      	
+      	"assets/libs/Inputmask-3.3.4/dist/jquery.inputmask.bundle.js",
         
       	"assets/theme/js/app.js"
       	
