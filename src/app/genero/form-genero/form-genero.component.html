@@ -1,5 +1,5 @@
 <div class="card">
-	<div form-validator >
+	<form form-validator (onSave)="save()">
 		<div class="card-header">
 			<i class="ace-icon fa fa-wpforms"></i>
 			Formulário de cadastro de Gênero
@@ -15,20 +15,20 @@
 			</div>
 		</div>
 		<div class="card-footer">
-			<button type="submit" class=" btn btn-primary " (click)="save()">
+			<button type="submit" class=" btn btn-primary ">
 				<i class="save fa fa-check "></i>
 				Salvar
 			</button>
 			&nbsp; &nbsp; &nbsp;
-			<button type="submit" class="btn btn-info " (click)="save()">
+			<button type="submit" class="btn btn-info ">
 				<i class="fa fa-check bigger-110"></i>
 				Salvar e Continuar
 			</button>
 			&nbsp; &nbsp; &nbsp;
-			<a class="btn btn-secondary">
-				<i class="fa fa-undo " [routerLink]="['/generos']"></i>
+			<a class="btn btn-secondary" [routerLink]="['/generos']">
+				<i class="fa fa-undo "> </i>
 				Voltar para a listagem
 			</a>
 		</div>
-	</div>
+	</form>
 </div>

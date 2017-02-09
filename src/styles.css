@@ -2,10 +2,16 @@
 	max-width: 120px !important;
 	width: 120px !important;
 }
+
 .app-footer {
 	z-index: 999999999999;
 }
+
 .advanceSearcFields .card-block {
 	padding-left: 0px !important;
 	padding-right: 0px !important;
+}
+
+.has-error {
+	color: rgb(185, 74, 72);
 }

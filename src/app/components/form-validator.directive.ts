@@ -1,36 +1,41 @@
 import { Directive, ElementRef, Renderer, EventEmitter, Output, HostListener, Input, AfterViewInit } from '@angular/core';
 
-@Directive( {
+@Directive({
     selector: '[form-validator]'
 })
 export class FormValidatorDirective {
 
-    constructor( private el: ElementRef, private render: Renderer ) {
+    constructor(private el: ElementRef, private render: Renderer) {
 
     }
 
-    ngAfterViewInit() {
-        $( this.el ).bind( 'submit', function( event ) {
-            let isValid: boolean = $( this.el ).isValid( null, {
-                modules: 'location, date, security, brazil',
-                validateOnEvent: true,
-                inputParentClassOnSuccess: '',
-                addValidClassOnAll: true,
-            });
+    @Output() public onSave: EventEmitter<any> = new EventEmitter();
 
-            if ( !isValid ) {
-                event.preventDefault();
-            }
-        })
-        $.validate( {
+    @HostListener('submit', ['$event'])
+    public onSubmit(event: any): boolean {
+        let isValid: boolean = $(this.el.nativeElement).isValid(null, {
             modules: 'location, date, security, brazil',
             validateOnEvent: true,
             inputParentClassOnSuccess: '',
             addValidClassOnAll: true,
         });
 
-
-        console.log( this.el );
+        if (!isValid) {
+            event.preventDefault();
+            event.stopPropagation()
+            event.stopImmediatePropagation()
+            return false;
+        }
+        this.onSave.emit(true);
+        return true;
     }
 
+    ngAfterViewInit() {
+        $.validate({
+            modules: 'location, date, security, brazil',
+            validateOnEvent: true,
+            inputParentClassOnSuccess: '',
+            addValidClassOnAll: true,
+        });
+    }
 }

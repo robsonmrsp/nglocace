@@ -21,7 +21,7 @@ export class RequestUtils {
     }
 
     public static getBaseUrl(): String {
-        return 'http://localhost:8083/locace'
+        return 'http://localhost:8080/locace'
     }
 
     public static createAuthHeaders(): Headers {
